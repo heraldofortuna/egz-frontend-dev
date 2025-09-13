@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-color: #242145;
+  --color-secondary-color: #2F2A5F;
+  --color-gray-color-1: #FFFFFF26;
+  --color-gray-color-2: #FFFFFF1A;
+  --color-gray-color-3: #FFFFFF99;
+  --color-gray-color-4: #ffffff40;
+  --color-gray-color-5: #ffffff20;
+  --color-blue-color-1: #2CC9FB;
+  --color-blue-color-2: #005BCE;
+  --color-blue-color-3: #1A9DEA;
+  --color-red-color-1: #F34880;
+  --color-red-color-2: #EC4550;
+  --color-orange-color-1: #FFC056;
+  --color-orange-color-2: #EA5D27;
+  --color-orange-color-3: #D14F22;
+  --color-purple-color-1: #2F2A5F;
+  --color-purple-color-2: #403A7B;
+  --color-purple-color-3: #3B3481;
+  --color-purple-color-4: #2C275C;
+  --color-yellow-color-1: #FFC63B;
+  --color-yellow-color-2: #F19A1A;
+  --color-green-color-1: #69D9C1;
+  --color-green-color-2: #1FAE8E;
+  --color-dark-blue-color-1: #1F3C6C;
+  --color-dark-blue-color-2: #2B4982;
+
+  --shadow-footer: 0px 35px 60px 0px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0px 35px 60px 0px #0000001A;
+  --shadow-steps: 0px 25px 40px 0px rgba(0, 0, 0, 0.1);
+
+  --width-fit-content: fit-content;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  color: white;
+  font-size: 1rem;
+  line-height: 125%;
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+}
+
+*:focus-visible {
+  outline: none;
+}
+
+/** Custom Styles **/
+.transition-regular {
+  transition: all 0.3s ease-in-out;
+}
+
+.bg-custom-footer {
+  background: radial-gradient(
+    35.91% 57.35% at 50.73% 35.85%,
+    #3d386a 0%,
+    #2c275c 100%
+  );
+}
+
+.h-custom-main {
+  min-height: calc(100vh - 80px);
+}
+
+@media only screen and (min-width: 768px) {
+  .h-custom-main {
+    min-height: calc(100vh - 130px);
+  }
+}
+
+.h-custom-menu-mobile {
+  height: calc(100vh);
+}
+
+.h-custom-loader {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 80px - 64px);
+}
+
+@media only screen and (min-width: 768px) {
+  .h-custom-loader {
+    min-height: calc(100vh - 130px - 128px);
+  }
+}
+
+.half-circle {
+  display: block;
+  background-color: #ffffff05;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+}
+
+.blur-background {
+  backdrop-filter: blur(8px);
+}
+
+/** Input Styles **/
+input::placeholder,
+textarea::placeholder {
+  color: #ffffff40;
+}
+
+input[type='date']::-webkit-datetime-edit-text,
+input[type='date']::-webkit-datetime-edit-month-field,
+input[type='date']::-webkit-datetime-edit-day-field,
+input[type='date']::-webkit-datetime-edit-year-field {
+  color: #ffffff40;
+}
+
+input[type='date'].date-input--has-value::-webkit-datetime-edit-text,
+input[type='date'].date-input--has-value::-webkit-datetime-edit-month-field,
+input[type='date'].date-input--has-value::-webkit-datetime-edit-day-field,
+input[type='date'].date-input--has-value::-webkit-datetime-edit-year-field {
+  color: #fff;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  opacity: 0.25;
+}
+
+input[type='date']:focus::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  opacity: 1;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white;
+  caret-color: white;
+}
+
+/** Dropdown **/
+.dropdown:hover .dropdownInput {
+  color: white;
+  border-bottom-color: white;
+}
+
+.dropdown:hover .dropdownIcon {
+  opacity: 100;
+}
+/** Page Loader **/
+.pageLoader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 150px;
+  height: 150px;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+}
+
+.pageLoader:after {
+  content: '';
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 30px;
+  animation: spin 1.3s infinite linear;
+  background: url('/egz-logo.svg') no-repeat center center;
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .pageLoader:after {
+    width: 150px;
+    height: 150px;
+    left: 0;
+  }
+}
+
+.pageLoader:before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  bottom: 40px;
+  border-radius: 50%;
+  filter: blur(6px);
+  width: 80px;
+  height: 2px;
+  background: #000;
+  animation: pulse 1.3s infinite ease-in-out;
+  opacity: 0.3;
+}
+
+@media (min-width: 768px) {
+  .pageLoader:before {
+    left: 0;
+    bottom: -20px;
+    width: 150px;
+  }
+}
+
+/* 🔄 ROTACIÓN CLÁSICA (360 grados) */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 💫 ANIMACIÓN DE PULSO PARA LA SOMBRA */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+}
+
+/* 🛠️ VERSIONES PARA WEBKIT */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0%, 100% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.4;
+    -webkit-transform: scale(1.2);
+  }
+}
+
+/** Button Loader **/
+.buttonLoader {
+  border: 3px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.buttonLoader--small {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.buttonLoader--medium {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.buttonLoader--large {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
