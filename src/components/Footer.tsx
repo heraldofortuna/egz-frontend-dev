@@ -38,7 +38,7 @@ const Footer = () => {
         <div className="h-full flex flex-col items-center pt-6 pb-12">
           <Image
             className="w-[120px] md:w-[160px]"
-            src="/egz-logo.svg"
+            src="/logo-egz-entero.png"
             width={160}
             height={160}
             alt="Logo de El Gran Zorro"
